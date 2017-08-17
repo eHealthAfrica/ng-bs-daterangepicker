@@ -84,7 +84,7 @@
 						$element.data('daterangepicker').updateView();
 						$element.data('daterangepicker').updateCalendars();
             if ($element.data('daterangepicker').updateInputText !== undefined) {
-              $element.data('datarangepicker').updateInputText();
+              $element.data('daterangepicker').updateInputText();
             } else if ($element.data('daterangepicker').updateElement !== undefined){
             	$element.data('daterangepicker').updateElement();
 						}
