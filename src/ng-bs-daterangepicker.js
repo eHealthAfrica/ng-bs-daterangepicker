@@ -3,6 +3,10 @@
  * (c) 2013 Luis Farzati http://github.com/luisfarzati/ng-bs-daterangepicker
  * License: MIT
  */
+
+/*
+	global angular
+ */
 (function(angular) {
 
 	'use strict';
@@ -79,7 +83,12 @@
 						$element.data('daterangepicker').endDate = momentify(ngModel.$modelValue.endDate);
 						$element.data('daterangepicker').updateView();
 						$element.data('daterangepicker').updateCalendars();
-						$element.data('daterangepicker').updateInputText();
+            if ($element.data('daterangepicker').updateInputText !== undefined) {
+              $element.data('daterangepicker').updateInputText();
+            } else if ($element.data('daterangepicker').updateElement !== undefined){
+            	$element.data('daterangepicker').updateElement();
+						}
+
 
 					});
 

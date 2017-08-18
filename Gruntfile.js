@@ -20,12 +20,12 @@ module.exports = function(grunt) {
           autoWatch: true,
           singleRun: true,
           files: [
-            'bower_components/jquery/dist/jquery.js',
-            'bower_components/angular/angular.js',
-            'bower_components/angular-mocks/angular-mocks.js',
-            'bower_components/bootstrap/dist/js/bootstrap.js',
-            'bower_components/momentjs/min/moment.min.js',
-            'bower_components/bootstrap-daterangepicker/daterangepicker.js',
+            'client/bower_components/jquery/dist/jquery.js',
+            'client/bower_components/angular/angular.js',
+            'client/bower_components/angular-mocks/angular-mocks.js',
+            'client/bower_components/moment/min/moment.min.js',
+            'client/bower_components/bootstrap/dist/js/bootstrap.js',
+            'client/bower_components/bootstrap-daterangepicker/daterangepicker.js',
             'src/ng-bs-daterangepicker.js',
             'test/**/*.js'
           ]
