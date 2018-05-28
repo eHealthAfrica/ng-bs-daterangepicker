@@ -21,7 +21,10 @@
 
 					if ($attributes.type !== 'daterange' || ngModel === null) {
 						return;
-					}
+          }
+          
+          var getter = $parse($attributes.ngModel);
+          var ngModelValue = getter($scope);
 
 					var options = {};
 					options.format = $attributes.format || 'YYYY-MM-DD';
@@ -54,8 +57,8 @@
 
 					function formatted(dates) {
 						return [format(dates.startDate), format(dates.endDate)].join(options.separator);
-					}
-
+          }
+          
 					ngModel.$render = function() {
 						if (!ngModel.$viewValue || !ngModel.$viewValue.startDate) {
 							return;
@@ -79,8 +82,11 @@
 							return;
 						}
 
-						$element.data('daterangepicker').startDate = momentify(ngModel.$modelValue.startDate);
-						$element.data('daterangepicker').endDate = momentify(ngModel.$modelValue.endDate);
+						// $element.data('daterangepicker').startDate = momentify(ngModel.$modelValue.startDate);
+            // $element.data('daterangepicker').endDate = momentify(ngModel.$modelValue.endDate);
+            $element.data('daterangepicker').startDate = momentify(ngModelValue.startDate);
+						$element.data('daterangepicker').endDate = momentify(ngModelValue.endDate);
+           
 						$element.data('daterangepicker').updateView();
 						$element.data('daterangepicker').updateCalendars();
             if ($element.data('daterangepicker').updateInputText !== undefined) {
@@ -90,7 +96,9 @@
 						}
 
 
-					});
+          });
+          
+          
 
 					$element.daterangepicker(options, function(start, end, label) {
 
